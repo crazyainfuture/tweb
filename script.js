@@ -4,14 +4,16 @@ const questions = [
         "options": ["SET ME FREE", "Talk that Talk", "THIS IS FOR", "Strategy (feat. Megan Thee Stallion)"],
         "answer": "THIS IS FOR",
         "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
-        "wrongMsg": ["真糟糕7月就出了!", "這麼簡單也可以答錯:("]
+        "wrongMsg": ["真糟糕7月就出了!", "這麼簡單也可以答錯:("],
+        "extraNote": ["請重看mv 20151020遍"]
     },
     {
         "question": "哪一位是Twice的隊長？",
         "options": ["Nayeon", "Jihyo", "Sana", "Dahyun"],
         "answer": "Jihyo",
         "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
-        "wrongMsg": ["真的是once??", "對你的粉籍提出嚴重質疑"]
+        "wrongMsg": ["真的是once??", "對你的粉籍提出嚴重質疑"],
+        "extraNote": [""]
     },
     
     {
@@ -19,7 +21,8 @@ const questions = [
         "options": ["Meeeeee", "MEEEEEE", "meeeeee", "ABCD"],
         "answer": "MEEEEEE",
         "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
-        "wrongMsg": ["歌單是不是需要更新了?", "是不是還沒練應援趕快去!!!"]
+        "wrongMsg": ["歌單是不是需要更新了?", "是不是還沒練應援趕快去!!!"],
+        "extraNote": [""]
     },
     
     {
@@ -27,7 +30,8 @@ const questions = [
         "options": ["strawberry🍓", "blueberry🫐", "avocado🥑", "AVOCADO🥑","IN MY RooM"],
         "answer": "AVOCADO🥑",
         "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
-        "wrongMsg": ["請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"]
+        "wrongMsg": ["請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
+        "extraNote": ["9/12! 9/12! 9/12!"]
     },
 ]
 
@@ -35,12 +39,31 @@ const questions = [
 let currentQuestion = 0;
 let score = 0;
 let playerName = "";
-const scoreboard = [];
+
 
 // Sidebar
 const toggleBtn = document.getElementById("toggleBtn");
 const sidebar = document.getElementById("sidebar");
 
+const listItems = document.querySelectorAll("#songList li");
+
+listItems.forEach(item => {
+  item.addEventListener("click", () => {
+    // 先收起所有 subContent
+    listItems.forEach(li => {
+      const sub = li.querySelector(".subContent");
+      if (sub && sub !== item.querySelector(".subContent")) {
+        sub.style.display = "none";
+      }
+    });
+
+    // 切換點擊的 subContent
+    const sub = item.querySelector(".subContent");
+    if (sub) {
+      sub.style.display = sub.style.display === "block" ? "none" : "block";
+    }
+  });
+});
 
 toggleBtn.addEventListener("click", () => {
   sidebar.classList.toggle("show");
@@ -49,7 +72,6 @@ toggleBtn.addEventListener("click", () => {
 
 const quizDiv = document.getElementById("quiz");
 const resultDiv = document.getElementById("result");
-const scoreList = document.getElementById("scoreList");
 const quizContainer = document.getElementById("quizContainer");
 const nameInputContainer = document.getElementById("nameInputContainer");
 const startBtn = document.getElementById("startBtn");
@@ -112,7 +134,7 @@ function checkAnswer(selected, clickedBtn, optionsDiv) {
     clickedBtn.style.backgroundColor = "green";
     score++;
 
-    // 正確訊息隨機選一個
+    // 正確訊息
     let msg = "";
     if (Array.isArray(q.correctMsg)) {
       const idx = Math.floor(Math.random() * q.correctMsg.length);
@@ -127,7 +149,7 @@ function checkAnswer(selected, clickedBtn, optionsDiv) {
   } else {
     clickedBtn.style.backgroundColor = "red";
 
-    // 錯誤訊息隨機或單一
+    // 錯誤訊息
     let msg = "";
     if (Array.isArray(q.wrongMsg)) {
       const idx = Math.floor(Math.random() * q.wrongMsg.length);
@@ -136,8 +158,14 @@ function checkAnswer(selected, clickedBtn, optionsDiv) {
       msg = q.wrongMsg;
     }
 
-    feedbackDiv.textContent = `❌ ${msg} 正確答案是：${q.answer}`;
+    feedbackDiv.textContent = `❌ ${msg}   正確答案是：${q.answer}`;
     feedbackDiv.style.color = "red";
+    
+     // 額外右下角補充訊息（來自題庫）
+    const extraNote = document.createElement("div");
+    extraNote.classList.add("extra-note");
+    extraNote.textContent = q.extraNote;
+    feedbackDiv.appendChild(extraNote);
 
     // 標示正確答案按鈕
     allButtons.forEach(b => {
@@ -147,11 +175,11 @@ function checkAnswer(selected, clickedBtn, optionsDiv) {
     });
   }
 
-  // 延遲 1.5 秒進入下一題
+  
   setTimeout(() => {
     currentQuestion++;
     loadQuestion();
-  }, 1500);
+  }, 5000);
 }
 
 
@@ -170,8 +198,3 @@ function endGame() {
   }, 2000);
 }
 
-function updateScoreboard() {
-  scoreList.innerHTML = scoreboard
-    .map((s, i) => `<li>第 ${i + 1} 名 - ${s.name}：${s.score} 分</li>`)
-    .join("");
-}
