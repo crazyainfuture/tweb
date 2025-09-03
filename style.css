@@ -1,0 +1,113 @@
+/* style.css */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ffb6c1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+
+.toggle-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* 頁面標題 */
+h1 {
+  margin-top: 80px; /* 避開固定 header */
+  text-align: center;
+  font-size: 2rem;
+  color: #ff69b4;
+}
+
+
+/* Sidebar */
+.sidebar {
+  position: fixed; top:60px; left:-250px; width:250px; height:100%;
+  background:#fff0f5; padding:20px;
+  box-shadow:2px 0 5px rgba(0,0,0,0.2);
+  transition:left 0.3s ease; z-index:900;
+}
+.sidebar.show { left:0; }
+.sidebar h2 { color:#ff1493; margin-bottom:10px; }
+.sidebar ul { list-style:none; padding:0; }
+.sidebar ul li { margin:10px 0; padding:5px; background:#ffe4e1; border-radius:5px; }
+
+/* Quiz 區域 */
+#nameInputContainer {
+  margin-left: 20px; /* 初始偏移，sidebar收起時 */
+  padding: 2rem;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+}
+
+
+.quiz-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.sidebar.open + .quiz-container,
+.sidebar.open + #nameInputContainer {
+  margin-left: 220px; /* sidebar展開時 */
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* 按鈕樣式 */
+.options button {
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.options button:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+#feedback {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
