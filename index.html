@@ -179,7 +179,7 @@
             <p>THIS IS FOR</p>
           </div>
         </li>
-        <li>不知道為甚麼沒吃到?</li>
+        <li>???</li>
       </ul>
     </div>
 
@@ -187,12 +187,18 @@
   <div id="nameInputContainer">
     <p>請輸入once的暱稱：🍭</p>
     <input type="text" id="playerName" placeholder="輸入暱稱">
-    <button id="startBtn">The Story Begins</button>
-    <a href="https://www.youtube.com/watch?v=0rtV5esQT6I&list=RD0rtV5esQT6I&start_radio=1">🧟‍♂️🧟‍♀️🧟</a>
+    <div class="end-buttons">
+      <button id="startBtn">The Story Begins</button>
+      <a href="https://www.youtube.com/watch?v=0rtV5esQT6I&list=RD0rtV5esQT6I&start_radio=1">🧟‍♂️🧟‍♀️🧟</a>
+    </div>
   </div>
 
   <!-- 問答遊戲區塊 -->
   <div class="quiz-container" id="quizContainer" style="display:none;">
+    <div class="progress-track">
+      <div id="progressAnimal">🐰</div>
+      <div id="timeBar"></div>
+    </div>
     <div id="quiz"></div>
     <div class="result" id="result"></div>
   </div>
