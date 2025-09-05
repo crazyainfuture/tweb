@@ -3,34 +3,42 @@ const questions = [
     "question": "Twice (韓專、大隊)新歌是哪一首？",
     "options": ["SET ME FREE", "Talk that Talk", "THIS IS FOR", "Strategy (feat. Megan Thee Stallion)"],
     "answer": "THIS IS FOR",
-    "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
-    "wrongMsg": ["真糟糕7月就出了!", "這麼簡單也可以答錯:("],
+    "correctMsg": ["FANCY!", "太棒了！答對了！"],
+    "wrongMsg": ["真糟糕7月就出了!", "這麼簡單也可以答錯:(","TT"],
     "extraNote": ["請重看mv 20151020遍"]
   },
   {
-    "question": "哪一位是Twice的隊長？",
+    "question": "哪一位是Twice的隊長?",
     "options": ["Nayeon", "Jihyo", "Sana", "Dahyun"],
     "answer": "Jihyo",
-    "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
+    "correctMsg": ["FANCY!", "太棒了！你答對了！"],
     "wrongMsg": ["真的是once??", "對你的粉籍提出嚴重質疑"],
     "extraNote": [""]
   },
   {
-    "question": "娜璉最新solo的歌名?",
+    "question": "娜璉最新solo歌曲的歌名?",
     "options": ["Meeeeee", "MEEEEEE", "meeeeee", "ABCD"],
     "answer": "MEEEEEE",
-    "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
-    "wrongMsg": ["歌單是不是需要更新了?", "是不是還沒練應援趕快去!!!"],
+    "correctMsg": ["正確!看來你有你的strategy喔!", "答對了! wanna MORE & MORE?"],
+    "wrongMsg": ["歌單是不是需要更新了?", "是不是還沒練應援趕快去!!!","真的alcohol...free?"],
     "extraNote": [""]
   },
   {
     "question": "9/12彩彩🍓要solo出道!!粗卡!!!!請問主打歌歌名是？",
     "options": ["strawberry🍓", "blueberry🫐", "avocado🥑", "AVOCADO🥑","IN MY RooM"],
     "answer": "AVOCADO🥑",
-    "correctMsg": ["答對了！真棒 👍", "太棒了！你答對了！"],
+    "correctMsg": ["答對了! wanna MORE & MORE?", "太棒了！你答對了！"],
     "wrongMsg": ["請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
     "extraNote": ["9/12! 9/12! 9/12!"]
   },
+  {
+    "question": "9/12彩彩🍓要solo出道!!粗卡!!!!請問主打歌歌名是？",
+    "options": ["定延", "sana", "娜璉", "Mina"],
+    "answer": "Mina",
+    "correctMsg": ["答對了! wanna MORE & MORE?", "太棒了！你答對了！"],
+    "wrongMsg": ["請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
+    "extraNote": ["9/12! 9/12! 9/12!"]
+  }
 ];
 
 let currentQuestion = 0;
@@ -266,25 +274,42 @@ function checkAnswer(selected, clickedBtn, optionsDiv) {
 /*遊戲結束*/
 function endGame() {
   clearInterval(timer); // 停止倒數
+  timerDisplay.textContent = "";
+  
   currentAnimalIndex = 0; // 重置動物順序
 
   quizDiv.innerHTML = "";
-  resultDiv.textContent = `遊戲結束！${playerName} 的分數是 ${score} / ${questions.length}`;
+
+  resultDiv.innerHTML = `
+    遊戲結束🎉！${playerName} 的分數是 ${score} / ${questions.length}
+    <p>不管是MOONLIGHT SUNRISE都要想著TWICE喔💖!</p>
+  `;
+
 
   // 重置進度條
-  const progressAnimal = document.getElementById("progressAnimal");
-  const timeBar = document.getElementById("timeBar");
-  progressAnimal.style.left = "0%";
-  progressAnimal.textContent = "";
-  timeBar.style.transform = "scaleX(0)";
+  const progressTrack = document.querySelector(".progress-track");
+  if (progressTrack) progressTrack.style.display = "none";
 
-  // 3秒後回到暱稱輸入區
+  // 回到暱稱輸入區
   setTimeout(() => {
     quizContainer.style.display = "none";
     nameInputContainer.style.display = "flex";
     nameInput.value = "";
     resultDiv.textContent = "";
-    timerDisplay.textContent = "";
-  }, 3000);
+
+    // 遊戲重新開始時再顯示
+    if (progressTrack) progressTrack.style.display = "block";
+  }, 10000);
 }
 
+/*彈跳視窗*/
+window.onload = function() {
+  const modal = document.getElementById("welcomeModal");
+  const startBtns = document.querySelectorAll(".startGameBtn");
+
+  startBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      modal.style.display = "none"; // 關閉彈窗
+    });
+  });
+};

@@ -113,6 +113,27 @@ h1 {
   transform: scale(1.05);
 }
 
+#heart {
+  display: inline-block;
+  color: red;
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+}
+
 /* Subcontent */
 .subContent {
   display: none;
@@ -339,5 +360,53 @@ a:hover {
 
 .footer-note:hover {
   opacity: 1;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* 半透明黑背景 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff0f5;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: popIn 0.3s ease;
+}
+
+.modal-content h2 {
+  color: #ff69b4;
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #ff1493;
+}
+
+/* 彈跳進場動畫 */
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
