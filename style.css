@@ -9,7 +9,7 @@
 body {
   background: linear-gradient(135deg, #fff5f8, #ffe4ec);
   min-height: 100vh;
-  color: #333;
+  color: #333; 
 }
 
 /* Header */
@@ -28,6 +28,7 @@ header {
   z-index: 1000;
 }
 
+
 .toggle-btn {
   font-size: 24px;
   background: none;
@@ -41,18 +42,38 @@ header {
 }
 
 /* 頁面標題 */
+:root{
+  --pink:#ff69b4;
+  --hotpink:#ff4fa3;
+  --violet:#b86bff;
+  --glow: rgba(255,105,180,.45);
+}
+
+/* 主標題 */
 h1 {
   margin-top: 100px; /* 避開固定 header */
   text-align: center;
   font-size: 2.4rem;
   color: #ff69b4;
-  text-shadow: 2px 2px 6px rgba(255, 105, 180, 0.3);
   letter-spacing: 2px;
   animation: float 3s ease-in-out infinite;
 }
+
+/* 浮動動畫 */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
+}
+
+/* TWICE 強調 */
+#twice {
+  color: #ff1493; /* 更深一點的粉紅 */
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(255, 20, 147, 0.6);
+}
+
+#twice:hover {
+  text-shadow: 0 0 12px rgba(255, 20, 147, 0.8);
 }
 
 /* Sidebar */
@@ -305,3 +326,18 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* WRITER*/
+.footer-note {
+  position: fixed;
+  bottom: 10px;   /* 距離底部 10px */
+  right: 15px;    /* 距離右邊 15px */
+  font-size: 0.9rem;
+  color: #ff69b4;
+  opacity: 0.8;
+}
+
+.footer-note:hover {
+  opacity: 1;
+}
+
