@@ -300,7 +300,7 @@ function checkAnswer(selected, clickedBtn, optionsDiv) {
   setTimeout(() => {
     currentQuestion++;
     loadQuestion();
-  }, 3000);
+  }, 5000);
 }
 
 
