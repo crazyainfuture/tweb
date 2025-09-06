@@ -59,6 +59,11 @@ h1 {
   animation: float 3s ease-in-out infinite;
 }
 
+#bigtitle {
+  color: #4260da;
+  text-shadow: 0 0 8px rgba(66, 96, 218, 0.6);
+}
+
 /* 浮動動畫 */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -349,17 +354,55 @@ a:hover {
 }
 
 /* WRITER*/
+/* Footer 卡片樣式 */
 .footer-note {
   position: fixed;
-  bottom: 10px;   /* 距離底部 10px */
-  right: 15px;    /* 距離右邊 15px */
+  bottom: 20px;       /* 距離底部 */
+  right: 20px;        /* 距離右邊 */
+  background: rgba(255, 192, 203, 0.9); /* 粉色半透明背景 */
+  color: #fff;
   font-size: 0.9rem;
-  color: #ff69b4;
-  opacity: 0.8;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
+.footer-note h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* 懸停效果 */
 .footer-note:hover {
   opacity: 1;
+  transform: translateY(-3px);  /* 懸停時微微上浮 */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* 倒數天數數字特效 */
+#countdown {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #ff1493;  /* 深粉色 */
+  transition: color 0.3s ease;
+}
+
+/* 倒數天數懸停顏色變化 */
+.footer-note:hover #countdown {
+  color: #ff69b4;
+}
+
+/* by XT 的字體樣式 */
+.footer-note p:last-child {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  opacity: 0.8;
 }
 
 /* Modal */
@@ -410,3 +453,60 @@ a:hover {
   to   { transform: scale(1); opacity: 1; }
 }
 
+/*RWD*/
+/* 手機 (max-width: 600px) */
+@media (max-width: 600px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+  }
+  header a {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 70px 10px 20px;
+  }
+  .sidebar {
+    width: 100%;
+    left: -100%;
+    border-top-right-radius: 0;
+  }
+  .sidebar.show {
+    left: 0;
+  }
+  .sidebar ul li {
+    font-size: 14px;
+    padding: 6px;
+  }
+  #nameInputContainer {
+    width: 90%;
+    margin: 30px auto;
+    padding: 15px;
+  }
+  #playerName {
+    font-size: 14px;
+  }
+  #startBtn {
+    width: 100%;
+    font-size: 14px;
+  }
+  .quiz-container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+  .question {
+    font-size: 16px;
+  }
+  .options button {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+  }
+  .footer-note {
+    font-size: 0.7rem;
+    right: 10px;
+  }
+}

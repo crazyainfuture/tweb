@@ -1,41 +1,74 @@
 const questions = [
-  {
+  {//1easy
     "question": "Twice (韓專、大隊)新歌是哪一首？",
     "options": ["SET ME FREE", "Talk that Talk", "THIS IS FOR", "Strategy (feat. Megan Thee Stallion)"],
     "answer": "THIS IS FOR",
-    "correctMsg": ["FANCY!", "太棒了！答對了！"],
-    "wrongMsg": ["真糟糕7月就出了!", "這麼簡單也可以答錯:(","TT"],
+    "correctMsg": ["FANCY!"],
+    "wrongMsg": ["You're in trouble trouble~", "TT"],
     "extraNote": ["請重看mv 20151020遍"]
   },
-  {
-    "question": "哪一位是Twice的隊長?",
-    "options": ["Nayeon", "Jihyo", "Sana", "Dahyun"],
-    "answer": "Jihyo",
-    "correctMsg": ["FANCY!", "太棒了！你答對了！"],
-    "wrongMsg": ["真的是once??", "對你的粉籍提出嚴重質疑"],
-    "extraNote": [""]
+  {//2easy
+    "question": "Twice 的吉祥物/娃娃叫什麼名字?",
+    "options": ["LOVELY", "CANDYBONG", "CANDYBONG Z", "CANDYBONG ∞"],
+    "answer": "LOVELY",
+    "correctMsg": ["答對了! 是LOVELY喔~", "正確!"],
+    "wrongMsg": ["LOVELY很可愛ㄟ", "CANDYBONG是應援棒啦!"],
+    "extraNote": ["BDZ的mv裡有LOVELY 很可愛 快去看看!"]
   },
-  {
-    "question": "娜璉最新solo歌曲的歌名?",
+  {//3easy 1
+    "question": "娜璉最新發布solo歌曲的歌名是?",
     "options": ["Meeeeee", "MEEEEEE", "meeeeee", "ABCD"],
     "answer": "MEEEEEE",
     "correctMsg": ["正確!看來你有你的strategy喔!", "答對了! wanna MORE & MORE?"],
-    "wrongMsg": ["歌單是不是需要更新了?", "是不是還沒練應援趕快去!!!","真的alcohol...free?"],
+    "wrongMsg": ["是不是還沒練應援趕快去!!!","真的alcohol...free?","SOS"],
     "extraNote": [""]
   },
-  {
+  {//4medium  7 9
+    "question": "在TTT YES or NO 其中一集，子瑜對鏡頭撒嬌擄獲姐姐們的心，誰深深忌妒了?",
+    "options": ["多賢", "志效", "彩瑛", "Mina"],
+    "answer": "多賢",
+    "correctMsg": ["跟我一樣是每周五下午5:00都在等TTT的人ㄟ", "有認真看TTT喔!"],
+    "wrongMsg": ["這系列都很好笑快去看!"],
+    "extraNote": ["出自TIME TO TWICE - YES or NO 系列"]
+  },
+  {//5medium  
+    "question": "在TTT THE GREAT ESCAPE這系列中，Twice 為了避免殭屍靠近所唱的驅魔神曲是?",
+    "options": ["What is Love? ", "Heart Shaker", "Dance the Night Away", "YES or YES"],
+    "answer": "Dance the Night Away",
+    "correctMsg": ["跟我一樣是每周五下午5:00都在等TTT的人ㄟ", "有認真看TTT喔!"],
+    "wrongMsg": ["TTT很有趣快去看!"],
+    "extraNote": ["出自TIME TO TWICE - THE GREAT ESCAPE 系列"]
+  },
+  {//6hard 4 5
+    "question": "以下哪個不是Sana曾經說過的話/歌詞?",
+    "options": ["sha sha sha", "Cheese Kimbap(起司飯捲)", "mina呀~ 我們得獎了!", "當你身處困境時，一定要記住，有九個人希望你幸福"],
+    "answer": "當你身處困境時，一定要記住，有九個人希望你幸福",
+    "correctMsg": ["好巧 我也是NO SANA NO LIFE的人", "Yeah~ incredible!"],
+    "wrongMsg": ["志效這句也讓我心裡暖暖的"],
+    "extraNote": [""]
+  },
+  
+  {//7hard 2 3
+    "question": "在四巡演唱會中，唱到knock knock時，定延突然忘記站位，是誰的引導而找到正確的站位?",
+    "options": ["子瑜", "Momo", "志效", "Mina"],
+    "answer": "Momo",
+    "correctMsg": ["是的!剛好歌詞是'take my hands'", "正確!最好的室友line!!"],
+    "wrongMsg": [""],
+    "extraNote": [""]
+  },
+  {//8hard 6
+    "question": "誰在隊內最愛偷看👀?",
+    "options": ["定延", "sana", "娜璉", "Mina"],
+    "answer": "Mina",
+    "correctMsg": ["答對了! 觀察得很仔細喔~👀👀", "Yeah ㅋㅋ"],
+    "wrongMsg": ["沒想到吧", "他只是犯了每個南人都會犯的錯而已"],
+    "extraNote": ["南擔好友私心出題"]
+  },
+  {//9medium 但這題要放最後 8
     "question": "9/12彩彩🍓要solo出道!!粗卡!!!!請問主打歌歌名是？",
     "options": ["strawberry🍓", "blueberry🫐", "avocado🥑", "AVOCADO🥑","IN MY RooM"],
     "answer": "AVOCADO🥑",
-    "correctMsg": ["答對了! wanna MORE & MORE?", "太棒了！你答對了！"],
-    "wrongMsg": ["請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
-    "extraNote": ["9/12! 9/12! 9/12!"]
-  },
-  {
-    "question": "9/12彩彩🍓要solo出道!!粗卡!!!!請問主打歌歌名是？",
-    "options": ["定延", "sana", "娜璉", "Mina"],
-    "answer": "Mina",
-    "correctMsg": ["答對了! wanna MORE & MORE?", "太棒了！你答對了！"],
+    "correctMsg": ["答對了! 請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
     "wrongMsg": ["請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
     "extraNote": ["9/12! 9/12! 9/12!"]
   }
@@ -282,6 +315,7 @@ function endGame() {
 
   resultDiv.innerHTML = `
     遊戲結束🎉！${playerName} 的分數是 ${score} / ${questions.length}
+    <p>11/22 11/23 THIS IS FOR 高雄場見!!</p>
     <p>不管是MOONLIGHT SUNRISE都要想著TWICE喔💖!</p>
   `;
 
@@ -313,3 +347,20 @@ window.onload = function() {
     });
   });
 };
+
+//倒數距離演唱會天數
+// 設定演唱會日期（格式：YYYY-MM-DD）
+  const concertDate = new Date("2025-11-22");
+
+  function updateCountdown() {
+    const today = new Date();
+    const timeDiff = concertDate - today; // 毫秒差
+    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // 轉換為天數
+    document.getElementById("countdown").textContent = daysLeft > 0 ? daysLeft : 0;
+  }
+
+  // 初次更新
+  updateCountdown();
+
+  // 每天更新一次（可選）
+  setInterval(updateCountdown, 1000 * 60 * 60); // 每小時更新一次
