@@ -16,7 +16,7 @@ const questions = [
     "extraNote": ["BDZ的mv裡有LOVELY 很可愛 快去看看!"]
   },
   {//3easy 1
-    "question": "娜璉最新發布solo歌曲的歌名是?",
+    "question": "娜璉最新solo舞台的歌名是?",
     "options": ["Meeeeee", "MEEEEEE", "meeeeee", "ABCD"],
     "answer": "MEEEEEE",
     "correctMsg": ["正確!看來你有你的strategy喔!", "答對了! wanna MORE & MORE?"],
