@@ -348,19 +348,55 @@ window.onload = function() {
   });
 };
 
-//倒數距離演唱會天數
-// 設定演唱會日期（格式：YYYY-MM-DD）
-  const concertDate = new Date("2025-11-22");
+//倒數距離天數
+// 存放所有倒數事件
+const countdownEvents = [];
 
-  function updateCountdown() {
-    const today = new Date();
-    const timeDiff = concertDate - today; // 毫秒差
-    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // 轉換為天數
-    document.getElementById("countdown").textContent = daysLeft > 0 ? daysLeft : 0;
-  }
+// 新增倒數事件
+function addCountdownCard(title, targetDate) {
+  countdownEvents.push({ title, targetDate });
+  renderCountdownCards();
+}
 
-  // 初次更新
-  updateCountdown();
+// 渲染卡片（會排序）
+function renderCountdownCards() {
+  const container = document.querySelector(".countdown-cards");
+  container.innerHTML = ""; 
 
-  // 每天更新一次（可選）
-  setInterval(updateCountdown, 1000 * 60 * 60); // 每小時更新一次
+  
+  countdownEvents.sort((a, b) => a.targetDate - b.targetDate);
+
+  countdownEvents.forEach(event => {
+    const card = document.createElement("div");
+    card.className = "countdown-card";
+
+    const h4 = document.createElement("h4");
+    h4.textContent = event.title;
+
+    const p = document.createElement("p");
+    card.appendChild(h4);
+    card.appendChild(p);
+
+    container.appendChild(card);
+
+    // 更新倒數天數
+    function updateCountdown() {
+      const now = new Date();
+      const diff = Math.ceil((event.targetDate - now) / (1000 * 60 * 60 * 24));
+      if (diff >= 0) {
+        p.textContent = `還有 ${diff} 天`;
+      } else {
+        p.textContent = "已經開始啦 🎉";
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60 * 60 * 1000); 
+  });
+}
+
+
+addCountdownCard("彩彩solo", new Date("2025-09-12"));
+addCountdownCard("高雄場", new Date("2025-11-22"));
+
+
