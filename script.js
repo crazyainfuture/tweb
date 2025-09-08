@@ -64,14 +64,14 @@ const questions = [
     "wrongMsg": ["沒想到吧", "他只是犯了每個南人都會犯的錯而已"],
     "extraNote": ["南擔好友私心出題"]
   },
-  {//9medium 但這題要放最後 8
+  /*{//9medium 但這題要放最後 8
     "question": "9/12彩彩🍓要solo出道!!粗卡!!!!請問主打歌歌名是？",
     "options": ["strawberry🍓", "blueberry🫐", "avocado🥑", "AVOCADO🥑","IN MY RooM"],
     "answer": "AVOCADO🥑",
     "correctMsg": ["答對了! 請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
     "wrongMsg": ["請多多支持彩彩的AVOCADO!!!", "9/12請支持彩彩的AVOCADO！"],
     "extraNote": ["9/12! 9/12! 9/12!"]
-  }
+  }*/
 ];
 
 let currentQuestion = 0;
